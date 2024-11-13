@@ -9,7 +9,9 @@ let schema = new Schema({
     phone: { type: Number, required: true },
     photo: { type: String, required: true },
     role: { type: Number, required: true },
-    online: { type: Boolean }
+    online: { type: Boolean },
+    invoices: [{ type: Schema.Types.ObjectId, ref: "invoices"}],
+    properties: [{ type: Schema.Types.ObjectId, ref: "properties"}]
 }, {
     timestamps: true
 })
