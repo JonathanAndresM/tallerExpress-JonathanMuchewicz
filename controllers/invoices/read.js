@@ -1,4 +1,4 @@
-import Bill from "../../models/Bill.js";
+import Invoice from "../../models/Invoice.js";
 import "../../models/User.js";
 
 export const allInvoices = async (req,res,next) => {
@@ -8,7 +8,7 @@ export const allInvoices = async (req,res,next) => {
         if (description) {
             query.description = {$regex: '^'+description, $options: 'i'}
         }
-        let all = await Bill.find(query).populate('user','name direction email phone photo').exec()
+        let all = await Invoice.find(query).populate('user','name direction email phone photo').exec()
         return res.status(200).json({
             response: all
         })
@@ -21,7 +21,7 @@ export const invoiceById = async (req,res,next) => {
     try {
         let invoiceId = req.params.id
         
-        let invoice = await Bill.findById(invoiceId).populate('user','name direction email phone photo')
+        let invoice = await Invoice.findById(invoiceId).populate('user','name direction email phone photo')
         if (!invoice) {
             return res.status(404).json({
                 success: false,

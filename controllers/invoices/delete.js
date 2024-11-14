@@ -1,11 +1,11 @@
-import Bill from "../../models/Bill.js";
+import Invoice from "../../models/Invoice.js";
 import User from "../../models/User.js";
 
 const deleteById = async (req, res, next) => {
     try {
         const invoiceId = req.params.id
         
-        const invoice = await Bill.findById(invoiceId)
+        const invoice = await Invoice.findById(invoiceId)
         if (!invoice) {
             return res.status(404).json({
                 message: "Factura no encontrada"
@@ -14,7 +14,7 @@ const deleteById = async (req, res, next) => {
 
         const userId = invoice.user;
 
-        await Bill.findByIdAndDelete(invoiceId);
+        await Invoice.findByIdAndDelete(invoiceId);
 
         await User.findByIdAndUpdate(userId,
             { $pull: { invoices: invoiceId }

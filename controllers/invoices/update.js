@@ -1,14 +1,15 @@
-import Bill from "../../models/Bill";
+import Invoice from "../../models/Invoice.js";
 
 const updateById = async (req, res, next) => {
     try {
         const invoiceId = req.params.id;
         
         
-        const updateData = { ...req.body };
-        delete updateData.user;
+        const updateData = { ...req.body }
+        delete updateData.user
+        delete updateData.date
 
-        const updated = await Bill.findByIdAndUpdate(
+        const updated = await Invoice.findByIdAndUpdate(
             invoiceId,
             updateData,
             { new: true })
@@ -17,15 +18,15 @@ const updateById = async (req, res, next) => {
             return res.status(200).json({
                 message: "Factura actualizada con éxito",
                 response: updated
-            });
+            })
         } else {
             return res.status(404).json({
                 message: "Factura no encontrada"
-            });
+            })
         }
     } catch (error) {
-        next(error);
+        next(error)
     }
 };
 
-export default updateById;
+export default updateById

@@ -11,6 +11,6 @@ let schema = new Schema({
     timestamps: true
 })
 
-let Bill = model(collection, schema)
+let Invoice = model(collection, schema)
 
-export default Bill
+export default Invoice

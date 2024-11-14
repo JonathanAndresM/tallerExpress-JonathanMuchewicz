@@ -1,5 +1,5 @@
 import User from "../../models/User.js"
-import "../../models/Bill.js"
+import "../../models/Invoice.js"
 import "../../models/Property.js"
 
 export const allUser = async (req, res, next) => {
