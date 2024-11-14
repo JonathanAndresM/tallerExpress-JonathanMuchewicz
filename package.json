@@ -10,8 +10,7 @@
     "dev": "nodemon ./server.js",
     "dataUsers": "node ./models/data/users.js",
     "dataInvoices": "node ./models/data/invoices.js",
-    "dataProperties": "node ./models/data/properties.js",
-    "updateData": "node script.js"
+    "dataProperties": "node ./models/data/properties.js"
   },
   "keywords": [],
   "author": "",

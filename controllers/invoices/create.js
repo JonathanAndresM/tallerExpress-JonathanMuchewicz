@@ -1,10 +1,10 @@
-import Bill from "../../models/Bill.js";
+import Invoice from "../../models/Invoice.js";
 import User from "../../models/User.js";
 
 let create = async (req, res, next) => {
     try {
         let invoice = req.body
-        let newInvoice = await Bill.create(invoice)
+        let newInvoice = await Invoice.create(invoice)
         await User.findByIdAndUpdate(req.body.user, {
             $push: { invoices: newInvoice._id }
         });

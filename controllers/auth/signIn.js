@@ -6,7 +6,6 @@ export default async (req,res,next) =>{
             {email: req.body.email},
             {online: true}
         )
-        console.log(req.body);
         
         return res.status(200).json({
             success: true,
@@ -22,8 +21,6 @@ export default async (req,res,next) =>{
             token: req.token
         })
     } catch (error) {
-        console.error(error);
-        
         next(error)
     }
 }

@@ -1,6 +1,6 @@
 import "dotenv/config.js"
 import "../../config/db.js"
-import Bill from "../Bill.js"
+import Invoice from "../Invoice.js"
 
 const invoices = [
     { date: "2024-11-01T09:00:00.000+00:00", description: "Compra de insumos", worth: 150, asset: false, user: "67303e38edd7625a5ae2cdf6" },
@@ -210,4 +210,4 @@ const invoices = [
 
 ];
 
-Bill.insertMany(invoices)
+Invoice.insertMany(invoices)
