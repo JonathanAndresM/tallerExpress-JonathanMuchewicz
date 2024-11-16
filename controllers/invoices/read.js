@@ -6,7 +6,7 @@ export const allInvoices = async (req,res,next) => {
         let {description} = req.query
         let query = {}
         if (description) {
-            query.description = {$regex: '^'+description, $options: 'i'}
+            query.description = {$regex: description, $options: 'i'}
         }
         let all = await Invoice.find(query).populate('user','name direction email phone photo').exec()
         return res.status(200).json({

@@ -15,7 +15,7 @@ const router = Router()
 
 router.get("/all", passport.authenticate("jwt", { session: false }), allUser)
 router.get("/user/:id", passport.authenticate("jwt",{session: false}),userById)
-router.post("/register", passport.authenticate("jwt", { session: false }),authRole(0), validator(schemaUserCreate), accountExists, createHash, register)
+router.post("/register", validator(schemaUserCreate), accountExists, createHash, register)
 router.delete("/delete/:id", passport.authenticate("jwt", { session: false }),authRole(0), deleteById)
 router.patch("/update/:id", passport.authenticate("jwt", { session: false }),authRole(0), validator(schemaUserUpdate), createHash, updateById)
 
